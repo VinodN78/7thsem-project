@@ -11,7 +11,7 @@ async function sendMail({ to, from=ADMIN_MAIL, subject, text, html }) {
   let transporter = nodemailer.createTransport({
     host: SMTP_HOST,
     port: SMTP_PORT,
-    secure: false,
+    secure: true,
     auth: {
       user: MAIL_USER,
       pass: MAIL_PASSWORD,
