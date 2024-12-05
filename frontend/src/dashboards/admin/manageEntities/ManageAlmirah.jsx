@@ -232,7 +232,7 @@ const ManageAlmirah = () => {
             <label htmlFor="number">RACK Number</label>
             <input
               type="text"
-              placeholder="Enter almirah number"
+              placeholder="Enter RACK number"
               name="number"
               className="bg text__color"
               value={formData.number}
