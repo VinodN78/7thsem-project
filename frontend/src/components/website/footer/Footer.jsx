@@ -46,7 +46,7 @@ const Footer = () => {
           <Link to="/about-us" className="text__color">
             EBooks
           </Link>
-          <Link to="/contact-us" className="text__color">
+          <Link to={"/admin/dashboard"||"user/dashboard"} className="text__color">
             Dashboard
           </Link>
           <Link to="/login" className="text__color">
