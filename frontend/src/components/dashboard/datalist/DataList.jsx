@@ -8,13 +8,13 @@ const DataList = ({heading,subheading,data,columns,keys}) => {
         <span>{subheading}</span>
 
         <div className="table__wrapper bg__accent">
-            <table cellspacing="0" cellpadding="0">
+            <table cellSpacing="0" cellPadding="0">
                 <thead>
                   <tr className="bg__secondary">
                     <td>Sr#</td>
                     {
                       columns?.map((column)=>{
-                        return <td key={column}>{column}</td>
+                        return (<td key={column}>{column}</td>)
                       })
                     }
                   </tr>
@@ -22,7 +22,7 @@ const DataList = ({heading,subheading,data,columns,keys}) => {
                 <tbody>
                   {
                     data?.map((i)=>{
-                      return <tr>
+                      return <><tr>
                     <td>1</td>
                     <td>101</td>
                     <td>Data Sturcture and Algorithm</td>
@@ -30,12 +30,14 @@ const DataList = ({heading,subheading,data,columns,keys}) => {
                     <td>Computer Science</td>
                     <td>13 Fab 2023</td>
                   </tr>
+                  </>
                     })
                   }
                 </tbody>
             </table>
         </div>
     </div>
+    
   )
 }
 
