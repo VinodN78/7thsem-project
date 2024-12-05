@@ -72,7 +72,7 @@ const Footer = () => {
       </div>
       <div className="bottom">
         <span>
-          &copy;2023 Copyright : Ruas Library Management System, Bengaluru
+          &copy;2024 Copyright : Student of M S Ramaiah University Of Applied Sciences, Bengaluru
         </span>
       </div>
     </footer>

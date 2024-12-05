@@ -16,7 +16,7 @@ const AddNewBook = () => {
     title: "",
     category: "",
     author: "",
-    almirah: "",
+    RACK: "",
     publisher: "",
     shelf: "",
     image: "",
@@ -125,7 +125,7 @@ const AddNewBook = () => {
             </div>
             {/* Almirah */}
             <div className="form-control">
-              <label htmlFor="almirah">Almirah</label>
+              <label htmlFor="almirah">RACK</label>
               <select
                 name="almirah"
                 id="almirah"
@@ -134,7 +134,7 @@ const AddNewBook = () => {
                 className="bg__accent text__color"
                 required
               >
-                <option value="">Select Almirah</option>
+                <option value="">Select RACK</option>
                 {almirahs?.map((i) => {
                   return (
                     <option key={i._id} value={i._id}>
