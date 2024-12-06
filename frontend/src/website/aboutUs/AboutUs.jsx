@@ -55,21 +55,23 @@ const AboutUs = () => {
                 <th className="bg__primary"style={{color: "black"}} >Name</th>
                 <th className="bg__primary"style={{color: "black"}}>Registration Number</th>
               </tr>
-              <tr>
-                <td>Arjun M P</td>
-                <td>21ETEC004013</td>
-              </tr>
+             
               <tr>
                 <td>Adarsh B Patil</td>
                 <td>21ETEC004003</td>
               </tr>
               <tr>
-                <td>Vinod Kumar</td>
-                <td>21ETEC004078</td>
+                <td>Arjun M P</td>
+                <td>21ETEC004013</td>
               </tr>
+              
               <tr>
                 <td>Mohammod Ibrahim Chickle &nbsp; </td>
                 <td>21ETEC004042</td>
+              </tr>
+              <tr>
+                <td>Vinod Kumar</td>
+                <td>21ETEC004078</td>
               </tr>
             </table>
           </p>
