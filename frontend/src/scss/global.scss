@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Hanalei Fill", cursive;
   // font-family: 'Roboto', sans-serif;
 
 }
@@ -113,7 +113,7 @@ body {
     outline: none;
     border: 2px solid transparent;
     border-radius: 3px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Hanalei Fill", cursive;
     &:focus {
       border: 2px solid $green-accent;
     }
@@ -322,11 +322,11 @@ body {
   tbody {
     tr {
       &:nth-child(even) {
-        background-color: #101624;
+        background-color: #7b0361;
       }
 
       &:hover {
-        background-color: #0c101b;
+        background-color: #71035d;
       }
     }
   }
