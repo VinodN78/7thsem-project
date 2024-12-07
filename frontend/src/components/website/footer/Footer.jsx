@@ -12,18 +12,33 @@ const Footer = () => {
           <img src={logo} alt="RUAS Library Logo" className="logo__icon" height="30" width="25" />
             <h4>Ruas Library</h4>
           </div>
-          <p style={{ marginTop: "8px", lineHeight: "1.5rem" }}>
-            <h4>Project by:</h4>
-            Arjun M P <br/>
-            Adarsh <br/>
-            Ibrahim<br/>
-            Vinod <br/>
+          <table border="0" >
+              <tr>
+                <th className="bg__primary"style={{color: "black"}} >PROJECT BY</th>
+                
+              </tr>
              
-
-          </p>
+              <tr>
+                <td>Adarsh B Patil</td>
+         
+              </tr>
+              <tr>
+                <td>Arjun M P</td>
+           
+              </tr>
+              
+              <tr>
+                <td>Mohammod Ibrahim Chickle  </td>
+          
+              </tr>
+              <tr>
+                <td>Vinod Kumar</td>
+              </tr>
+            </table>
+        
         </div>
         <div className="box2">
-          <h4>USEFULL LINKS</h4>
+          <h4 style={{color:"#f76a1f"}}>USEFULL LINKS</h4>
           <Link to="/" className="text__color">
             Home
           </Link>
@@ -39,14 +54,14 @@ const Footer = () => {
         </div>
 
         <div className="box3">
-          <h4>OTHER USEFULL LINKS</h4>
+          <h4 style={{color:"#f76a1f"}}>OTHER USEFULL LINKS</h4>
           <Link to="/" className="text__color">
             Books
           </Link>
           <Link to="/about-us" className="text__color">
             EBooks
           </Link>
-          <Link to="/contact-us" className="text__color">
+          <Link to={"/admin/dashboard"||"user/dashboard"} className="text__color">
             Dashboard
           </Link>
           <Link to="/login" className="text__color">
@@ -55,7 +70,7 @@ const Footer = () => {
         </div>
 
         <div className="box4">
-          <h4>CONTACT</h4>
+          <h4 style={{color:"#f76a1f"}}>CONTACT</h4>
           <div className="item">
             <AiOutlineHome className="icon__home" />
             <span>M S Ramaiah University of Applied Sciences</span>
@@ -71,8 +86,8 @@ const Footer = () => {
         </div>
       </div>
       <div className="bottom">
-        <span>
-          &copy;2023 Copyright : Ruas Library Management System, Bengaluru
+        <span style={{color:"#f76a1f"}}>
+          &copy;2024 Copyright : Student of M S Ramaiah University Of Applied Sciences, Bengaluru
         </span>
       </div>
     </footer>
