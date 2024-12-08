@@ -97,10 +97,10 @@ class AlmirahController {
         }
         const columns = [
           { header: "Subject", key: "subject" },
-          { header: "Almirah Number", key: "number" },
+          { header: "RACK Number", key: "number" },
           { header: "Total Books", key: "bookCount" },
         ];
-        const fileName = "almirahs.csv";
+        const fileName = "RACK.csv";
         exportToCSV(data, columns, fileName, res);
       } catch (error) {
           next(error);
