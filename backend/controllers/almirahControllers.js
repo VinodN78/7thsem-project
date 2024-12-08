@@ -47,7 +47,7 @@ class AlmirahController {
     try {
       const almirah = await AlmirahModel.findById(_id);
       if (!almirah) {
-        return next(ErrorHandlerService.notFound("Almirah not found"));
+        return next(ErrorHandlerService.notFound("RACK not found"));
       }
       return res.status(200).json({ almirah });
     } catch (error) {
@@ -81,7 +81,7 @@ class AlmirahController {
     try {
       const almirah = await AlmirahModel.findByIdAndDelete(_id);
       if (!almirah) {
-        return next(ErrorHandlerService.notFound("Almirah Not Found"));
+        return next(ErrorHandlerService.notFound("RACK Not Found"));
       }
       res.status(204).json({ almirah });
     } catch (error) {
