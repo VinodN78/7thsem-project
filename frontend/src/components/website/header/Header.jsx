@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <header>
       <div className="topbar bg__secondary text__color">
-        <span>Discover, Learn, Thrive: Dive into our Library!</span>
+        <span>Explore, Grow, Succeed: Step into Our Library!</span>
         <div>
           <BiPhoneCall />
           <span>8904190173</span>
