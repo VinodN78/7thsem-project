@@ -4,7 +4,6 @@ import { AiOutlineClose, AiOutlineMail } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FaRegUserCircle, FaRegMoon } from "react-icons/fa";
-import { GiBookAura } from "react-icons/gi";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiSun } from "react-icons/fi";
 import { NavLink, Link } from "react-router-dom";
