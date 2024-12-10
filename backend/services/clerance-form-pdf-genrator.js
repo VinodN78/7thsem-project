@@ -43,7 +43,7 @@ async function generateClearanceForm(data, fileName) {
   jumpLine(doc, 5);
 
   /* ################### TEXT ##################### */
-  doc.fontSize(10).fill("#021c27").text("Govt. Graduate College, Jhelum", {
+  doc.fontSize(10).fill("#021c27").text("Ms Ramaiah University of Applied Sciences ", {
     align: "center",
   });
   jumpLine(doc, 1);
@@ -62,7 +62,7 @@ async function generateClearanceForm(data, fileName) {
   doc
     .fontSize(10)
     .text(
-      `This is to certify that ${data?.studentName} (${data?.studentRollNumber}) has successfully met all academic and administrative requirements at Govt.Graduate College, Jhelum. The requested clearance for Graduation has been approved by Librarian, HOD and Clerk.`,
+      `This is to certify that ${data?.studentName} (${data?.studentRollNumber}) has successfully met all academic and administrative requirements at M S Ramaiah university of applied science. The requested clearance for Graduation has been approved by Librarian, HOD and Clerk.`,
       {
         align: "center",
       }
