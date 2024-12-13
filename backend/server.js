@@ -27,10 +27,28 @@ import { errorHandlerMiddleware } from "./middlewares/index.js";
 const app = express();
 app.use(express.json({ limit: "5mb" }));
 
+const prodOrigins = [
+  process.env.ORIGIN_1 || 'http://defaultorigin1.com', 
+  process.env.ORIGIN_2 || 'http://defaultorigin2.com'
+];
+const devOrigin = ['http://localhost:5173'];
+const allowedOrigins = process.env.NODE_ENV === 'production' ? prodOrigins : devOrigin;
+
 const corsOptions = {
-  credentials: true,
-  origin: [VITE_BASE_URL||"http://localhost:5173"],
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin)) {
+      if (process.env.NODE_ENV === 'development') {
+        console.log(origin, allowedOrigins); // Log only in development
+      }
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Allow credentials (cookies, HTTP authentication, etc.)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods for CORS
 };
+
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -38,12 +56,11 @@ app.use(cookieParser());
 /* ABSOLUTE PATH OF BACKEND FOLDER */
 const __filename = fileURLToPath(import.meta.url);
 export const ROOT_PATH = path.dirname(__filename);
-// console.log(ROOT_PATH);
 
 /* STATIC FOLDER */
-app.use("/public", express.static("./public"));
-app.use("/uploads", express.static("./uploads"));
-app.use("/documents", express.static("./documents")); 
+app.use("/public", express.static(path.join(ROOT_PATH, 'public')));
+app.use("/uploads", express.static(path.join(ROOT_PATH, 'uploads')));
+app.use("/documents", express.static(path.join(ROOT_PATH, 'documents')));
 
 /* MONGOOSE SETUP */
 mongoose
@@ -56,10 +73,8 @@ mongoose
     });
   })
   .catch((err) => {
-    console.log("SOMETHING WENT WRONG WHILE CONNECTING TO MONGO DB 😢😢");
-    console.log("====================================");
-    console.log(err);
-    console.log("====================================");
+    console.error("SOMETHING WENT WRONG WHILE CONNECTING TO MONGO DB 😢😢", err);
+    process.exit(1); // Ensure the app doesn't start if DB connection fails
   });
 
 /* ROUTES */
@@ -76,5 +91,5 @@ app.use("/api/transactions", transactionRouter);
 app.use("/api/genral", genralRouter);
 app.use("/api/clearance", clearanceRouter);
 
-/* ERROR HANLDER MIDDLEWARE */
+/* ERROR HANDLER MIDDLEWARE */
 app.use(errorHandlerMiddleware);
