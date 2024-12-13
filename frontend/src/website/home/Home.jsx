@@ -55,7 +55,7 @@ const Home = () => {
       <section className="welcome">
         <div className="left">
           <div className="heading">
-            <h1>Welcome Message </h1>
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome  Message </h1>
           </div>
           <p>
             Welcome to the M S Ramaiah University of Applied Science, Library Management
