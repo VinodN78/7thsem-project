@@ -10,7 +10,7 @@ export default defineConfig({
     proxy: {
       '/api': 'https://seventhsem-project1.onrender.com',  // Proxy all API requests to an external server
     },
-    port: 10000,
+    
     open: true,
   },
 });
