@@ -68,8 +68,8 @@ mongoose
   .then(() => {
     console.log("MONGO DB CONNECTED SUCCESSFULLY 😍😍");
     /* CREATE SERVER */
-    app.listen(APP_PORT, () => {
-      console.log(`SERVER IS LISTNING ON PORT ${APP_PORT}`);
+    app.listen(process.env.PORT, () => {
+      console.log(`SERVER IS LISTNING ON PORT ${process.env.PORT}`);
     });
   })
   .catch((err) => {
