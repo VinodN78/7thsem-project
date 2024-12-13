@@ -31,19 +31,18 @@ const Books = () => {
         await getAllCategoriesWithoutPagination();
       setBooksData(books);
       setCategories(categoriesData?.categories);
-      // console.log(categoriesData);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching data:", error);
     }
   };
 
+  // Debounced Query Changes
   useEffect(() => {
     if (isFirstRender) {
       setIsFirstRender(false);
       return;
     }
     setCurrentPage(1);
-    // debouncing
     const handler = setTimeout(() => {
       fetchData();
     }, 1000);
@@ -53,12 +52,14 @@ const Books = () => {
     };
   }, [query]);
 
+  // Fetch Data on Page Change
   useEffect(() => {
     fetchData();
   }, [currentPage]);
 
   return (
     <div className="books__wrapper bg text__color">
+      {/* Sidebar */}
       <div className="sidebar__wrapper bg__accent">
         <div className="sidebar__content">
           <h3>Categories</h3>
@@ -75,28 +76,30 @@ const Books = () => {
                 All
               </label>
             </li>
-
-            {categories?.map((i) => {
-              return (
-                <li key={i?._id}>
+            {categories?.length ? (
+              categories.map((category) => (
+                <li key={category?._id}>
                   <label>
                     <input
                       type="checkbox"
                       name="category"
-                      checked={query.category === i?._id}
+                      checked={query.category === category?._id}
                       onChange={() => {
-                        setQuery({ ...query, category: i?._id });
+                        setQuery({ ...query, category: category?._id });
                       }}
                     />
-                    {i?.name}
+                    {category?.name}
                   </label>
                 </li>
-              );
-            })}
+              ))
+            ) : (
+              <p>No categories available</p>
+            )}
           </ul>
         </div>
       </div>
 
+      {/* Main Content */}
       <div className="main">
         <div className="topbar">
           <div className="left">
@@ -121,40 +124,35 @@ const Books = () => {
 
         <section className="books__section">
           <div className="card__wrapper">
-            {booksData?.books.length !== 0 ? (
-              booksData?.books?.map((book) => {
-                return (
-                  <>
-                  <div className="card bg__accent">
-                    <img
-                      src={
-                        book?.imagePath
-                          ? `${BASE_URL}/${book?.imagePath}`
-                          : defaultCover
-                      }
-                      alt="Book Image Not Found"
-                    />
-                    <div className="content">
-                      <h5>{book?.title}</h5>
-                      <p>By {book?.author}</p>
-                      <Stars rating={book?.rating} />
-                      <p>
-                        {book?.totalReviews} Reviews | {book?.rating} out of 5
-                      </p>
-                      <div className="action">
-                        <Link
-                          className="btn btn__secondary"
-                          to={`/books/${book?._id}`}
-                        >
-                          View Details
-                        </Link>
-                      </div>
+            {booksData?.books?.length ? (
+              booksData.books.map((book) => (
+                <div className="card bg__accent" key={book._id}>
+                  <img
+                    src={
+                      book?.imagePath
+                        ? `${BASE_URL}/${book.imagePath}`
+                        : defaultCover
+                    }
+                    alt="Book Image Not Found"
+                  />
+                  <div className="content">
+                    <h5>{book?.title}</h5>
+                    <p>By {book?.author}</p>
+                    <Stars rating={book?.rating} />
+                    <p>
+                      {book?.totalReviews} Reviews | {book?.rating} out of 5
+                    </p>
+                    <div className="action">
+                      <Link
+                        className="btn btn__secondary"
+                        to={`/books/${book?._id}`}
+                      >
+                        View Details
+                      </Link>
                     </div>
-                  
                   </div>
-                  </>
-                );
-              })
+                </div>
+              ))
             ) : (
               <h1 style={{ margin: "20px auto" }}>Book Not Found</h1>
             )}

@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 /* ENV VARIABLES */
-import { APP_PORT, MONGO_DB_URI } from "./config/index.js";
+import { VITE_BASE_URL, APP_PORT, MONGO_DB_URI } from "./config/index.js";
 /* IMPORT ALL ROUTES */
 import {
   almirahRouter,
@@ -29,7 +29,7 @@ app.use(express.json({ limit: "5mb" }));
 
 const corsOptions = {
   credentials: true,
-  origin: ["http://localhost:5173"],
+  origin: [VITE_BASE_URL||"http://localhost:5173"],
 };
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
@@ -47,7 +47,7 @@ app.use("/documents", express.static("./documents"));
 
 /* MONGOOSE SETUP */
 mongoose
-  .connect(process.env.MONGO_DB_URI)
+  .connect(MONGO_DB_URI)
   .then(() => {
     console.log("MONGO DB CONNECTED SUCCESSFULLY 😍😍");
     /* CREATE SERVER */

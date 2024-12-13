@@ -13,6 +13,7 @@ const Footer = () => {
             <h4>Ruas Library</h4>
           </div>
           <table border="0" >
+            <tbody>
               <tr>
                 <th className="bg__primary"style={{color: "black"}} >PROJECT BY</th>
                 
@@ -34,6 +35,7 @@ const Footer = () => {
               <tr>
                 <td>Vinod Kumar</td>
               </tr>
+              </tbody>
             </table>
         
         </div>

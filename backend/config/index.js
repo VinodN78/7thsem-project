@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 
 /* CONFIGURE ENV VARIABLES */
 dotenv.config();
+const VITE_BASE_URL = process.env.VITE_BASE_URL;
 
 const APP_PORT = process.env.APP_PORT || 4000;
 const MONGO_DB_URI = process.env.MONGO_DB_URI;
@@ -56,4 +57,5 @@ export {
   NUMBER_OF_DAYS_OF_STUDENT,
   NUMBER_OF_DAYS_OF_TEACHER_OR_HOD,
   ADMIN_MAIL,
+  VITE_BASE_URL,
 };

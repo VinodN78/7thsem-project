@@ -51,6 +51,7 @@ const AboutUs = () => {
         text={
           <p>
             <table border="0" >
+            <tbody>
               <tr>
                 <th className="bg__primary"style={{color: "black"}} >Name</th>
                 <th className="bg__primary"style={{color: "black"}}>Registration Number</th>
@@ -73,6 +74,7 @@ const AboutUs = () => {
                 <td>Vinod Kumar</td>
                 <td>21ETEC004078</td>
               </tr>
+              </tbody>
             </table>
           </p>
         }

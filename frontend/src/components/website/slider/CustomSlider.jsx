@@ -25,7 +25,6 @@ const settings = {
         infinite: true,
       },
     },
-
     {
       breakpoint: 640,
       settings: {
@@ -43,7 +42,7 @@ const CustomSlider = ({ data }) => {
   return (
     <section className="book__slider">
       <div className="container">
-        {/* previous and next button */}
+        {/* Previous and Next buttons */}
         <button
           onClick={() => {
             slider?.current?.slickPrev();
@@ -64,9 +63,9 @@ const CustomSlider = ({ data }) => {
           <h1>New Arrivals</h1>
         </div>
         <Slider ref={slider} {...settings}>
-          {data?.map((book) => {
+          {data?.map((book, index) => {
             return (
-              <div className="book__card bg__accent">
+              <div className="book__card bg__accent" key={book._id || index}>
                 <img
                   src={
                     book?.imagePath
