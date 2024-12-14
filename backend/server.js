@@ -22,7 +22,7 @@ import {
   transactionRouter,
 } from "./routes/index.js";
 import { errorHandlerMiddleware } from "./middlewares/index.js";
-
+console.log("dine ");
 /* CONFIGURATION */
 const app = express();
 app.use(express.json({ limit: "5mb" }));
