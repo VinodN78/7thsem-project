@@ -28,8 +28,8 @@ const app = express();
 app.use(express.json({ limit: "5mb" }));
 
 const prodOrigins = [
-  process.env.ORIGIN_1 || 'http://defaultorigin1.com', 
-  process.env.ORIGIN_2 || 'http://defaultorigin2.com'
+  process.env.ORIGIN_1 , 
+  process.env.ORIGIN_2 
 ];
 const devOrigin = ['http://localhost:5173'];
 const allowedOrigins = process.env.NODE_ENV === 'production' ? prodOrigins : devOrigin;
@@ -58,9 +58,9 @@ const __filename = fileURLToPath(import.meta.url);
 export const ROOT_PATH = path.dirname(__filename);
 
 /* STATIC FOLDER */
-app.use("/public", express.static(path.join(ROOT_PATH, 'public')));
-app.use("/uploads", express.static(path.join(ROOT_PATH, 'uploads')));
-app.use("/documents", express.static(path.join(ROOT_PATH, 'documents')));
+app.use("/public", express.static("./public"));
+app.use("/uploads", express.static("./uploads"));
+app.use("/documents", express.static("./documents")); 
 
 /* MONGOOSE SETUP */
 mongoose
