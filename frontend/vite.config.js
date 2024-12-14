@@ -7,8 +7,12 @@ d.config();
 export default defineConfig({
   plugins: [react()],
   server: {
-    proxy: {
-      '/api': 'https://seventhsem-project1.onrender.com',  // Proxy all API requests to an external server
+    proxy: { '/foo': 'http://localhost:5173',
+      '/api': {
+        target: 'https://seventhsem-project1.onrender.com',
+        changeOrigin: true,
+        secure: false,
+      },
     },
     
     open: true,
